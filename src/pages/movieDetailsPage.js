@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
+import { getMovie, getMovieImages } from "../api/tmdb-api";
 
 const useStyles = makeStyles((theme) => ({
   root: {
