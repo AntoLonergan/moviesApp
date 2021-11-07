@@ -1,6 +1,7 @@
 import React from "react";
 import MovieReviewPage from "./pages/movieReviewPage";
 import ReactDOM from "react-dom";
+import SiteHeader from './components/siteHeader'
 import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
@@ -8,8 +9,9 @@ import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; // NEW
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <ul>
+      <BrowserRouter>
+          <SiteHeader />      {/* New Header  */}
+        <ul>
         <li>
           <Link to="/">Home</Link>
         </li>
