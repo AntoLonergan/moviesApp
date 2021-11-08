@@ -4,13 +4,26 @@ import ReactDOM from "react-dom";
 import SiteHeader from './components/siteHeader'
 import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
+import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from 'react-query/devtools'
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; // NEW
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 360000,
+      refetchInterval: 360000, 
+      refetchOnWindowFocus: false
+    },
+  },
+});
+
 const App = () => {
   return (
+    <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-          <SiteHeader />      {/* New Header  */}
+      <SiteHeader />      {/* New Header  */}
         <ul>
         <li>
           <Link to="/">Home</Link>
@@ -26,7 +39,9 @@ const App = () => {
         <Route exact path="/" component={HomePage} />
         <Redirect from="*" to="/" />
       </Switch>
-    </BrowserRouter>
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 };
 
