@@ -33,7 +33,7 @@ const App = () => {
         <Route path="/movies/:id" component={MoviePage} />
         <Route exact path="/" component={HomePage} />
         <Redirect from="*" to="/" />
-            </Switch>
+        </Switch>
         </MoviesContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
