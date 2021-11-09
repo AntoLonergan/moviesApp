@@ -9,6 +9,7 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import MoviesContextProvider from "./contexts/moviesContext";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; // NEW
+import AddMovieReviewPage from './pages/addMovieReviewPage'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,6 +29,7 @@ const App = () => {
         <MoviesContextProvider>
             {" "}
             <Switch>
+            <Route exact path="/reviews/form" component={AddMovieReviewPage} />
             <Route path="/reviews/:id" component={MovieReviewPage} />
         <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
         <Route path="/movies/:id" component={MoviePage} />
